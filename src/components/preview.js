@@ -1,7 +1,6 @@
 import AbstractComponent from "./abstract-component";
-import {createItems} from "../utils/render";
 
-const getPreviewHtml = (cardData) => {
+const createPreviewTemplate = (cardData) => {
   return (`
     <li class="preview-list__item" data-id="${cardData.id}">
       <img class="preview-list__image" src="${cardData.previewImage}" alt="Превью недвижимости">
@@ -9,14 +8,6 @@ const getPreviewHtml = (cardData) => {
       <address class="preview-list__address">${cardData.address}</address>
       <span class="preview-list__price">${cardData.price}</span>
      </li>
-  `);
-};
-
-const createPreviewTemplate = (cardData) => {
-  return (`
-    <ul class="preview-list">
-      ${createItems(cardData, getPreviewHtml)}
-    </ul>
   `);
 };
 
@@ -33,10 +24,6 @@ export default class Preview extends AbstractComponent {
   }
 
   setCardClickHandler(handler) {
-    const cards = document.querySelectorAll(`.preview-list__item`);
-
-    cards.forEach((card) => {
-      card.addEventListener(`click`, handler);
-    });
+    this.getElement().addEventListener(`click`, handler);
   }
 }
