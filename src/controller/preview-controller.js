@@ -13,8 +13,7 @@ export default class PreviewController {
     render(this._container.getElement(), this._previewComponent, RenderPosition.BEFOREEND);
 
     this._previewComponent.setCardClickHandler(() => {
-      // TODO: open new page with preview data
-      console.log('Clicked');
+      window.open(`card.html?id=${this._previewComponent.getId()}`);
     });
   }
 }

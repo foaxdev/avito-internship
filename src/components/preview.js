@@ -19,6 +19,10 @@ export default class Preview extends AbstractComponent {
     this._cardData = cardData;
   }
 
+  getId() {
+    return this._cardData.id;
+  }
+
   getTemplate() {
     return createPreviewTemplate(this._cardData);
   }

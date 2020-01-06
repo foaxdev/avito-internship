@@ -6,6 +6,9 @@ export default class Realty {
     this.title= data[`title`];
     this.previewImage = data[`previewImage`];
     this.price = data[`price`];
+    this.description = data[`description`];
+    this.sellerName = data[`sellerName`];
+    this.images = data[`images`];
   }
 
   static parseRealty(data) {

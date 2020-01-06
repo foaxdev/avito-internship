@@ -20,6 +20,12 @@ export default class Api {
       .then(Realty.parseRealties);
   }
 
+  getCardInfo(id) {
+    return this._load({url: `item/${id}`})
+      .then((response) => response.json())
+      .then(Realty.parseRealties);
+  }
+
   _load({url, method = `GET`, body = null}) {
     return fetch(`${this._endPoint}/${url}`, {method, body})
       .then(checkStatus)
