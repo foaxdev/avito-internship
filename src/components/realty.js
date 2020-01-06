@@ -1,4 +1,11 @@
 import AbstractComponent from "./abstract-component";
+import {createItems} from "../utils/render";
+
+const getImagesHtml = (imageData) => {
+  return(`
+    <li class="realty-images-list__items"><img class="realty-images-list__image" src="${imageData}"></li>
+  `);
+};
 
 const createRealtyTemplate = (cardData) => {
   return (`
@@ -7,8 +14,8 @@ const createRealtyTemplate = (cardData) => {
       <address class="realty__address">${cardData.address}</address>
       <span class="realty__price">${cardData.price}</span>
       <p class="realty__seller">${cardData.sellerName}</p>
-      <p class="description">${cardData.description}</p>
-      <!-- Images -->
+      <p class="realty__description">${cardData.description}</p>
+      <ul class="realty-images-list">${createItems(cardData.images, getImagesHtml)}</ul>
      </div>
   `);
 };
